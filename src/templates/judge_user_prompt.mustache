@@ -1,0 +1,18 @@
+Original Prompt Specification:
+{{{prompt_spec}}}
+
+Description A:
+{{{agent1_json}}}
+
+Description B:
+{{{agent2_json}}}
+
+Compare both descriptions to the original prompt specification.
+YOU **MUST** return your evaluation as JSON with this structure:
+```json
+{
+  "choosen": "A or B (whichever better matches the original specification)",
+  "rejected": "A or B (whichever matches less well)",
+  "justification": "Your detailed explanation of why the chosen description better matches the specification"
+}
+```

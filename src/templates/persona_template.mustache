@@ -1,0 +1,119 @@
+# Agent Generator
+
+Generate an agent specification based on a general context and the particularities of the agent (if any). The generated agent specification will be used in a simulation to realistically represent a real person.
+
+The simulation uses the Big Five personality model to guide the construction of agent behavior. Each person possesses all five personality traits, Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, in varying degrees. These traits are stable psychological tendencies that influence how individuals perceive the world, relate to others, process information, and make decisions.
+Each of the Big Five traits is broken into six narrower facets that offer more fine-grained insight into behavior and cognition. It is the unique combination of a person's trait and facet levels that gives rise to their individuality.
+Your task is to use this psychological profile — together with the context and any particularities — to generate agents who behave, speak, and think in ways consistent with their personality.
+
+## Personality Profile
+{{#personality_profile}}
+### Big Five Personality Traits (qualitative levels: Very Low, Low, Medium, High, Very High):
+- **Openness**: {{openness}}
+  - Facets: Imagination {{imagination}}, Artistic Interests {{artistic_interests}}, Emotionality {{emotionality}}, Adventurousness {{adventurousness}}, Intellect {{intellect}}, Liberalism {{liberalism}}
+- **Conscientiousness**: {{conscientiousness}}
+  - Facets: Self-Efficacy {{self_efficacy}}, Orderliness {{orderliness}}, Dutifulness {{dutifulness}}, Achievement-Striving {{achievement_striving}}, Self-Discipline {{self_discipline}}, Cautiousness {{cautiousness}}
+- **Extraversion**: {{extraversion}}
+  - Facets: Friendliness {{friendliness}}, Gregariousness {{gregariousness}}, Assertiveness {{assertiveness}}, Activity Level {{activity_level}}, Excitement-Seeking {{excitement_seeking}}, Cheerfulness {{cheerfulness}}
+- **Agreeableness**: {{agreeableness}}
+  - Facets: Trust {{trust}}, Morality {{morality}}, Altruism {{altruism}}, Cooperation {{cooperation}}, Modesty {{modesty}}, Sympathy {{sympathy}}
+- **Neuroticism**: {{neuroticism}}
+  - Facets: Anxiety {{anxiety}}, Anger {{anger}}, Depression {{depression}}, Self-Consciousness {{self_consciousness}}, Immoderation {{immoderation}}, Vulnerability {{vulnerability}}
+{{/personality_profile}}
+
+## Demographic Information
+- **Age**: {{age}}
+- **Sex**: {{sex}}
+- **Country**: {{country}}
+
+## Generation Rules
+
+To generate the requested agents, you **must** to follow these directives:
+  - Based on the person's age, sex, country of origin, and Big Five personality profile, be creative to generate a realistic and psychologically consistent life story, behaviors, and preferences.
+  - Be imaginative in shaping the person’s life, but avoid stereotypes and clichés. Each person has all five traits — and all facets — expressed at different levels. Use this full profile to shape their story, preferences, and decisions. For example, someone might be low in Extraversion overall, but high in Assertiveness and Cheerfulness — leading to a person who avoids large crowds but still speaks up in group discussions and maintains an upbeat attitude. Let combinations of traits and facets guide you toward nuanced, realistic lives.
+  - The agents you generate must sound authentic and realistic, considering the context provided. Avoid platitudes and cliches. The agents you generate represent real humans, and as such encompass all the diversity and complexity of real people. So not only happy and successful people, but also people with problems, fears, and difficulties.
+  - When generating a person specification, be free to use whatever elements are most realistic,  even if they are typically undesireable (e.g., vicious people are part of the general population). We need a realistic sample of people, not a caricature. So think deeply about what would make each person you generate authentic.
+
+## Output Format Rules
+Your output **must** follow these rules:
+  - You'll generate this response **only** in JSON format, no extra text, no Markdown elements.
+  - **Obey** the followinf symbolic json structure described below
+  - Make sure you **always** produce valid JSON. In particular, **always** use double quotes for field names and string values, use square bracket for list.
+  - The format for this JSON response is as described below. At a minimum, the response must contain the following structure:
+  
+### JSON Format:
+```json
+{
+  "name": "",
+  "age": "",
+  "gender": "",
+  "nationality": "",
+  "residence": "",
+  "education": "",
+  "identity": {
+    "occupation": {
+      "title": "",
+      "organization": "",
+      "description": ""
+    },
+    "long_term_goals": [],
+    "values": [],
+    "beliefs": []
+  },
+  "personality": {
+    "traits": [],
+    "big_five": {
+      "openness": "",
+      "conscientiousness": "",
+      "extraversion": "",
+      "agreeableness": "",
+      "neuroticism": ""
+    },
+    "facets": {
+      "openness": [],
+      "conscientiousness": [],
+      "extraversion": [],
+      "agreeableness": [],
+      "neuroticism": []
+    }
+  },
+  "preferences": {
+    "interests": [],
+    "likes": [],
+    "dislikes": []
+  },
+  "emotional_profile": {
+    "frequent_emotions": [],
+    "emotional_triggers": [],
+    "regulation_strategies": []
+  },
+  "coping_styles": [],
+  "behaviors": {
+    "general_patterns": [],
+    "routines": {
+      "morning": [],
+      "workday": [],
+      "evening": [],
+      "weekend": []
+    }
+  },
+  "relationships": {
+    "roles": [],
+    "attachment_style": "",
+    "examples": []
+  },
+  "social_roles": [],
+  "life_events": [
+    {
+      "event": "",
+      "impact": "",
+      "emotions": [],
+      "growth": ""
+    }
+  ],
+  "self_concept": {
+    "strengths": [],
+    "weaknesses": [],
+    "identity_labels": []
+  }
+}
